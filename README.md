@@ -17,6 +17,8 @@ npm install
 
 ```bash
 npm test
+# or
+npm run coverage
 ```
 
 - Run server
