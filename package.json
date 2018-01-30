@@ -1,0 +1,27 @@
+{
+  "name": "adidas-wishlist",
+  "version": "1.0.0",
+  "description": "a simple wishlist",
+  "main": "src",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamovittorio/adidas-wishlist.git"
+  },
+  "keywords": [
+    "adidas",
+    "wishlist",
+    "graphql",
+    "react",
+    "docker",
+    "apollo"
+  ],
+  "author": "Vittorio Adamo <vittorio.adamo@arreeba.com> (https://ristoranti.it/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamovittorio/adidas-wishlist/issues"
+  },
+  "homepage": "https://github.com/adamovittorio/adidas-wishlist#readme"
+}
