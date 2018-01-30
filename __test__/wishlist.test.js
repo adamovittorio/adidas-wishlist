@@ -23,13 +23,11 @@ describe('whishlist query', () => {
     `;
 
     const rootValue = {};
-    const context = {};
+    const context = { articles };
 
     const result = await graphql(schema, query, rootValue, context);
     const { data } = result;
 
-    // console.log(data);
-
-    expect(data.wishlist).toEqual(articles);
+    expect(data.wishlist).toEqual(context.articles);
   });
 });
