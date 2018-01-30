@@ -1,0 +1,48 @@
+{
+  "name": "adidas-wishlist",
+  "version": "1.0.0",
+  "description": "a simple wishlist",
+  "main": "src",
+  "scripts": {
+    "test": "npx jest",
+    "start": "node src",
+    "start:dev": "npx nodemon src",
+    "test:watch": "npx jest --watch",
+    "test:coverage": "npx jest --coverage; npx http-server ./coverage/lcov-report -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamovittorio/adidas-wishlist.git"
+  },
+  "keywords": [
+    "adidas",
+    "wishlist",
+    "graphql",
+    "react",
+    "apollo"
+  ],
+  "author": "Vittorio Adamo <vittorio.adamo@arreeba.com> (https://ristoranti.it/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamovittorio/adidas-wishlist/issues"
+  },
+  "homepage": "https://github.com/adamovittorio/adidas-wishlist#readme",
+  "devDependencies": {
+    "eslint": "4.16.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.6.1",
+    "http-server": "0.11.1",
+    "jest": "22.1.4",
+    "nodemon": "1.14.11"
+  },
+  "dependencies": {
+    "apollo-server-express": "1.3.2",
+    "body-parser": "1.18.2",
+    "express": "4.16.2",
+    "graphql": "0.12.3",
+    "graphql-tools": "2.19.0",
+    "lodash": "4.17.4"
+  }
+}
