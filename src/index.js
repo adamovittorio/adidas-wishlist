@@ -3,10 +3,20 @@ const bodyParser = require('body-parser');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 
 const schema = require('./schema');
+const articles = require('./data/articles.json');
 
 const app = express();
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+app.use(
+  '/graphql',
+  bodyParser.json(),
+  graphqlExpress({
+    schema,
+    context: {
+      articles,
+    },
+  }),
+);
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 

@@ -2,7 +2,6 @@ const { makeExecutableSchema } = require('graphql-tools');
 
 const Article = require('./types/Article');
 const InputArticle = require('./types/InputArticle');
-let articles = require('./data/articles.json');
 
 const Queries = `
   type Query {
@@ -32,15 +31,15 @@ const schema = makeExecutableSchema({
     InputArticle,
   ],
   resolvers: {
-    Query: { wishlist: () => articles },
+    Query: { wishlist: (_, args, ctx) => ctx.articles },
     Mutation: {
-      addArticle: (_, { article }) => {
+      addArticle: (_, { article }, ctx) => {
         const newArticle = {
-          id: articles.length,
+          id: ctx.articles.length,
           ...article,
         };
 
-        articles = articles.concat(newArticle);
+        ctx.articles = ctx.articles.concat(newArticle);
         return newArticle;
       },
     },
