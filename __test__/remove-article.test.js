@@ -1,8 +1,8 @@
 const _ = require('lodash');
 const { graphql } = require('graphql');
-const schema = require('../src/schema');
+const schema = require('../src/server/schema');
 
-const articles = require('../src/data/articles.json');
+const articles = require('../src/server/data/articles.json');
 
 describe('remove article in wishlist by id', () => {
   test('should remove an article in an wishlist with length = 1', async () => {

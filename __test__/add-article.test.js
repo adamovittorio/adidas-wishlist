@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const { graphql } = require('graphql');
-const schema = require('../src/schema');
+const schema = require('../src/server/schema');
 
 describe('add article in wishlist', () => {
   test('should add a new article in an empty wishlist', async () => {

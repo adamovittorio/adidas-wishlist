@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx jest",
     "start": "node src",
-    "start:dev": "npx nodemon src",
+    "start:dev": "npx nodemon src/server",
     "test:watch": "npx jest --watch",
     "test:coverage": "npx jest --coverage; npx http-server ./coverage/lcov-report -o"
   },
@@ -44,5 +44,12 @@
     "graphql": "0.12.3",
     "graphql-tools": "2.19.0",
     "lodash": "4.17.4"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "__test__/*",
+      "src/client/*",
+      "coverage/*"
+    ]
   }
 }
