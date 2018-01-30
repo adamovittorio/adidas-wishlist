@@ -3,12 +3,12 @@ const InputArticle = `
     suggestion: String!
     image: String
     url: String
-    rating: Int
-    reviews: Int
-    price: Int
-    currency: String
+    rating: String
+    reviews: String
+    separatedSalePrice: String
+    separatedStandartPrice: String
     subTitle: String
-    isPreorder: Boolean
+    isPreorder: String
   }
 `;
 
