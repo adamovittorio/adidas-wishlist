@@ -4,7 +4,8 @@
   "description": "a simple wishlist",
   "main": "src",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "npx nodemon src"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,6 @@
     "wishlist",
     "graphql",
     "react",
-    "docker",
     "apollo"
   ],
   "author": "Vittorio Adamo <vittorio.adamo@arreeba.com> (https://ristoranti.it/)",
@@ -23,5 +23,20 @@
   "bugs": {
     "url": "https://github.com/adamovittorio/adidas-wishlist/issues"
   },
-  "homepage": "https://github.com/adamovittorio/adidas-wishlist#readme"
+  "homepage": "https://github.com/adamovittorio/adidas-wishlist#readme",
+  "devDependencies": {
+    "eslint": "4.16.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.6.1",
+    "nodemon": "1.14.11"
+  },
+  "dependencies": {
+    "apollo-server-express": "1.3.2",
+    "body-parser": "1.18.2",
+    "express": "4.16.2",
+    "graphql": "0.12.3",
+    "graphql-tools": "2.19.0"
+  }
 }
