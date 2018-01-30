@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const { makeExecutableSchema } = require('graphql-tools');
 
 const Article = require('./types/Article');
@@ -12,6 +13,7 @@ const Queries = `
 const Mutations = `
   type Mutation {
     addArticle(article: InputArticle!): Article
+    removeArticle(articleId: Int!): Article
   }
 `;
 
@@ -31,9 +33,9 @@ const schema = makeExecutableSchema({
     InputArticle,
   ],
   resolvers: {
-    Query: { wishlist: (_, args, ctx) => ctx.articles },
+    Query: { wishlist: (obj, args, ctx) => ctx.articles },
     Mutation: {
-      addArticle: (_, { article }, ctx) => {
+      addArticle: (obj, { article }, ctx) => {
         const newArticle = {
           id: ctx.articles.length,
           ...article,
@@ -41,6 +43,10 @@ const schema = makeExecutableSchema({
 
         ctx.articles = ctx.articles.concat(newArticle);
         return newArticle;
+      },
+      removeArticle: (obj, { articleId }, ctx) => {
+        const removed = _.remove(ctx.articles, ({ id }) => id === articleId);
+        return removed[0];
       },
     },
   },

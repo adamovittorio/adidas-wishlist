@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const { graphql } = require('graphql');
 const schema = require('../src/schema');
 
@@ -25,7 +26,7 @@ describe('add article in wishlist', () => {
     `;
 
     const rootValue = {};
-    const context = { articles };
+    const context = { articles: _.clone(articles) };
 
     const result = await graphql(schema, mutation, rootValue, context);
     const { data } = result;
