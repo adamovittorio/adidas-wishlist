@@ -21,7 +21,7 @@ npm test
 npm run coverage
 ```
 
-- Run server
+- Run App (server + client)
 
 ```bash
 npm start
@@ -29,7 +29,7 @@ npm start
 
 ## Development
 
-- Start nodemon for watching sourcecode changes
+- Start nodemon for watching server sourcecode changes and webpack for client
 
 ```bash
 npm run start:dev
