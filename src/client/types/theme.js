@@ -1,8 +1,9 @@
 import { injectGlobal } from 'styled-components';
 
 const theme = {
-  primary: 'mediumseagreen',
-  secondary: 'palevioletred',
+  primary: 'black',
+  secondary: 'gray',
+  text: 'white',
 };
 
 export const globalStyle = injectGlobal`
@@ -11,7 +12,7 @@ export const globalStyle = injectGlobal`
     padding: 0px;
     margin: 0px;
     overflow-y: hidden;
-    background-color: papayawhip;
+    background-color: white;
   }
   body {
     height: 100%;

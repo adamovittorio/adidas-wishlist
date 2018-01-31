@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Wishlist = () => {
+import Header from '../components/Header';
+
+const Wishlist = (props) => {
   return (
-    <div>Wishlist</div>
+    <Header title="Wishlist" />
   );
 };
 

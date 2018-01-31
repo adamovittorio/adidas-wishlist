@@ -5,9 +5,16 @@ import { Link } from 'react-router-dom';
 import { SEARCH, WISHLIST } from '../types/routes';
 
 const Wrapper = styled.div`
-  border: 2px solid ${({ theme }) => theme.primary};
+  border-bottom: 2px solid ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.primary};
   height: 40px;
   display: flex;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  &:hover {
+    box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+  }
 `;
 
 const NavList = styled.ul`
@@ -26,13 +33,12 @@ const NavElement = styled.li`
 `;
 
 const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.text};
   text-decoration: none;
   font-size: 20px;
-  font-weight: bold;
 
   &:hover {
-    color: rebeccapurple;
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 
