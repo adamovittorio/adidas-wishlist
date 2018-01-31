@@ -31,8 +31,14 @@ const Header = (props) => {
   return (
     <Wrapper>
       <Title> {props.title} </Title>
-      {props.title === 'Search' &&
-        <Input />
+      {props.search &&
+        <Input
+          onChange={({ target }) => {
+            if (target.value === '') { return; } // TODO normalize
+            props.search(target.value);
+          }}
+          placeholder="Ultraboost"
+        />
       }
     </Wrapper>
   );
@@ -40,9 +46,11 @@ const Header = (props) => {
 
 Header.propTypes = {
   title: PropTypes.string,
+  search: PropTypes.func,
 };
 Header.defaultProps = {
   title: 'Header',
+  search: null,
 };
 
 export default Header;

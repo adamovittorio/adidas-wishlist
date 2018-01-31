@@ -1,47 +1,16 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import ArticleType from '../types/react/ArticleType';
+import { searchArticles } from '../actions';
 
-import Header from '../components/Header';
-import List from '../components/List';
+import SearchComponent from '../components/Search';
 
-
-class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      articles: this.props.articles,
-    };
-  }
-  componentWillReceiveProps(nextProps) {
-    if (this.props.articles !== nextProps.articles) {
-      this.setState({
-        articles: nextProps.articles,
-      });
-    }
-  }
-
-  render() {
-    return (
-      <Fragment>
-        <Header
-          title="Search"
-          search={this.props.search}
-        />
-        <List articles={this.state.articles} />
-      </Fragment>
-    );
-  }
-}
-
-Search.propTypes = {
-  search: PropTypes.func.isRequired,
-  articles: PropTypes.arrayOf(ArticleType),
+const mapStateToProps = ({ search }) => {
+  return {
+    articles: search.data || [],
+  };
 };
-Search.defaultProps = {
-  articles: [],
-};
+
+const Search = connect(mapStateToProps, { searchArticles })(SearchComponent);
 
 export default Search;
 

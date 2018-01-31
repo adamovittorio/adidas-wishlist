@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import ArticleType from '../types/react/ArticleType';
 
 const List = (props) => {
-  return props.articles.map((article) => {
+  return props.articles.map((article, i) => {
     return (
-      <div>{article.suggestion}</div>
+      <div key={i}>
+        {article.suggestion}
+      </div>
     );
   });
 };
