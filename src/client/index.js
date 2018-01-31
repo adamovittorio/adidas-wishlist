@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
 } from 'react-router-dom';
 
 import { SEARCH, WISHLIST } from './types/routes';
@@ -22,11 +21,11 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Switch>
+        <Fragment>
           <Navbar />
           <Route exact path={SEARCH} component={Search} />
           <Route exact path={WISHLIST} component={Wishlist} />
-        </Switch>
+        </Fragment>
       </Router>
     </Provider>
   );

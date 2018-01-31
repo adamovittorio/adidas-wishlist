@@ -16,15 +16,15 @@ npm install
 - Run test
 
 ```bash
-npm test
-# or
-npm run coverage
+npm test # or npm run coverage
 ```
 
 - Run App (server + client)
 
 ```bash
-npm start
+npm start # start backend server
+
+npm serve # transpile and serve client code
 ```
 
 ## Development
