@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx jest",
     "test:watch": "npx jest --watch",
-    "test:coverage": "npx jest --coverage; npx http-server ./coverage/lcov-report -o",        
+    "test:coverage": "npx jest --coverage; npx http-server ./coverage/lcov-report -o",
     "start:server": "npx nodemon src/server",
     "start:client": "npx webpack-dev-server --progress --color --open --config ./webpack.dev.js",
     "start:dev": "concurrently --kill-others \"npm run start:server\" \"npm run start:client\"",
@@ -61,6 +61,10 @@
     "graphql-tools": "2.19.0",
     "lodash": "4.17.4",
     "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "react-dom": "16.2.0",
+    "react-redux": "5.0.6",
+    "redux": "3.7.2",
+    "redux-devtools-extension": "2.13.2",
+    "redux-thunk": "2.2.0"
   }
 }

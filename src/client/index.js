@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-const title = 'My Minimal Test React Webpack Babel Setup';
+import store from './reducers/configure-store';
 
-ReactDOM.render(
-  <div>{title}</div>,
-  document.getElementById('root'),
-);
+const rootNode = document.getElementById('root');
 
-module.hot.accept();
+const App = () => {
+  return (
+    <Provider store={store}>
+      <div>Test</div>
+    </Provider>
+  );
+};
+
+ReactDOM.render(<App />, rootNode);
