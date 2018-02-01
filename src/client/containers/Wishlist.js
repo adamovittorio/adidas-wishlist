@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 
 import Wishlist from '../components/Wishlist';
 
-const WishlistData = gql`
+export const WishlistQuery = gql`
   query wishlist {
     articles: wishlist {
       id
@@ -21,4 +21,4 @@ const WishlistData = gql`
   }
 `;
 
-export default graphql(WishlistData)(Wishlist);
+export default graphql(WishlistQuery)(Wishlist);

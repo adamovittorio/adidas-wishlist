@@ -1,6 +1,8 @@
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import { WishlistQuery } from './Wishlist';
+
 import Article from '../components/Article';
 
 const addArticle = gql`
@@ -22,6 +24,14 @@ const addArticle = gql`
 `;
 
 export default graphql(addArticle, {
+  options: {
+    update: (proxy, { data: { addedArticle } }) => {
+      // update cache
+      const data = proxy.readQuery({ query: WishlistQuery });
+      data.articles.push(addedArticle);
+      proxy.writeQuery({ query: WishlistQuery, data });
+    },
+  },
   props: ({ mutate }) => ({
     addArticle: article => mutate({ variables: { article } }),
   }),
