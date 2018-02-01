@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import ArticleType from '../types/react/ArticleType';
-import Article from './Article';
+import ArticleWithMutation from '../containers/ArticleWithMutation';
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,7 +17,9 @@ const Wrapper = styled.div`
 const List = (props) => {
   return (
     <Wrapper>
-      {props.articles.map((article, i) => <Article key={i} article={article} />)}
+      {props.articles.map((article, i) =>
+        <ArticleWithMutation key={i} article={article} />)
+      }
     </Wrapper>
   );
 };

@@ -9,6 +9,8 @@ const InputArticle = `
     separatedStandartPrice: String
     subTitle: String
     isPreorder: String
+    salePrice: String
+    standardPrice: String
   }
 `;
 

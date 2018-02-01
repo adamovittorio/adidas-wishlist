@@ -17,4 +17,7 @@ export const Suggestion = styled.h2`
 export const Subtitle = styled.h3`
   color: ${({ theme }) => theme.primary};
   margin: 0.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

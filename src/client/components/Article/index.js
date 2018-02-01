@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import ArticleType from '../../types/react/ArticleType';
@@ -19,14 +19,20 @@ const Float = styled.div`
 class Article extends Component {
   constructor(props) {
     super(props);
-    this.state = { selected: false };
+    this.state = {
+      selected: false,
+    };
   }
   onClick = () => {
-    this.setState({ selected: !this.state.selected });
+    if (!this.state.selected) {
+      this.props.addArticle(this.props.article);
+      this.setState({ selected: true });
+    }
   }
   render() {
-    const { article } = this.props;
     const { selected } = this.state;
+    const { article } = this.props;
+
     const imageUrl = `${article.image.split('?')[0]}?sw=240&sh=240&sm=fit`;
     const color = selected ? 'crimson' : 'silver';
 
@@ -43,8 +49,11 @@ class Article extends Component {
 
 Article.propTypes = {
   article: ArticleType.isRequired,
+  addArticle: PropTypes.func,
 };
 
-Article.defaultProps = {};
+Article.defaultProps = {
+  addArticle: () => ({}),
+};
 
 export default Article;
