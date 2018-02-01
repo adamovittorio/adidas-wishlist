@@ -25,8 +25,11 @@ class SearchBar extends Component {
     }, () => {
       const { searchTerm } = this.state;
       if (this.debouce) { this.debounce.clearTimeout(); }
-      if (searchTerm.length <= 1) { return; }
-      this.debounce = setTimeout(() => this.props.search(searchTerm), 800);
+      if (searchTerm.length <= 1) {
+        this.props.clearSearch();
+      } else {
+        this.debounce = setTimeout(() => this.props.search(searchTerm), 800);
+      }
     });
   }
   render() {
@@ -42,6 +45,7 @@ class SearchBar extends Component {
 
 SearchBar.propTypes = {
   search: PropTypes.func.isRequired,
+  clearSearch: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

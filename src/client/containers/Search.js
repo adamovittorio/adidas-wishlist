@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { searchArticles } from '../actions';
+import { searchArticles, clearSearch } from '../actions';
 
 import SearchComponent from '../components/Search';
 
@@ -10,7 +10,7 @@ const mapStateToProps = ({ search }) => {
   };
 };
 
-const Search = connect(mapStateToProps, { searchArticles })(SearchComponent);
+const Search = connect(mapStateToProps, { searchArticles, clearSearch })(SearchComponent);
 
 export default Search;
 

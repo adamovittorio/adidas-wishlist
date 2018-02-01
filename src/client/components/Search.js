@@ -12,6 +12,7 @@ const Search = (props) => {
       <Header
         title="Search on Adidas.com"
         search={props.searchArticles}
+        clearSearch={props.clearSearch}
       />
       <List articles={props.articles} route={props.match.path} />
     </Fragment>
@@ -21,6 +22,7 @@ const Search = (props) => {
 Search.propTypes = {
   match: PropTypes.any, // eslint-disable-line
   searchArticles: PropTypes.func.isRequired,
+  clearSearch: PropTypes.func.isRequired,
   articles: PropTypes.arrayOf(ArticleType),
 };
 Search.defaultProps = {

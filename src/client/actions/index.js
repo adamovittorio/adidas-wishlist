@@ -2,6 +2,7 @@ import {
   ARTICLES_SEARCH_START,
   ARTICLES_SEARCH_SUCCESS,
   ARTICLES_SEARCH_ERROR,
+  ARTICLES_SEARCH_CLEAR,
 } from '../types/redux/search';
 
 import { ADIDAS_API_URL } from '../types/constants';
@@ -20,3 +21,6 @@ export const searchArticles = (searchTerm) => {
       .catch(err => dispatch({ type: ARTICLES_SEARCH_ERROR, error: err }));
   };
 };
+export const clearSearch = () => ({
+  type: ARTICLES_SEARCH_CLEAR,
+});

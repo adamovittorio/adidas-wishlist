@@ -13,11 +13,11 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const Header = (props) => {
+const Header = ({ title, search, clearSearch }) => {
   return (
     <Wrapper>
-      <Title> {props.title} </Title>
-      {props.search && <SearchBar search={props.search} />}
+      <Title> {title} </Title>
+      {search && <SearchBar search={search} clearSearch={clearSearch} />}
     </Wrapper>
   );
 };
@@ -25,10 +25,12 @@ const Header = (props) => {
 Header.propTypes = {
   title: PropTypes.string,
   search: PropTypes.func,
+  clearSearch: PropTypes.func,
 };
 Header.defaultProps = {
   title: 'Header',
   search: null,
+  clearSearch: null,
 };
 
 export default Header;
