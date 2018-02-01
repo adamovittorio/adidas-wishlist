@@ -1,4 +1,4 @@
-import { graphql, compose } from 'react-apollo';
+import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import Article from '../components/Article';
@@ -21,15 +21,8 @@ const addArticle = gql`
   }
 `;
 
-const removeArticle = gql`
-  mutation removeArticle($articleId: String!){
-    removedArticle: removeArticle(articleId: $articleId) {
-      id
-    }
-  }
-`;
-
-export default compose(
-  graphql(addArticle, { name: 'addArticle' }),
-  graphql(removeArticle, { name: 'removeArticle' }),
-)(Article);
+export default graphql(addArticle, {
+  props: ({ mutate }) => ({
+    addArticle: article => mutate({ variables: { article } }),
+  }),
+})(Article);

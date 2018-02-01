@@ -13,12 +13,13 @@ const Search = (props) => {
         title="Search on Adidas.com"
         search={props.searchArticles}
       />
-      <List articles={props.articles} />
+      <List articles={props.articles} route={props.match.path} />
     </Fragment>
   );
 };
 
 Search.propTypes = {
+  match: PropTypes.any, // eslint-disable-line
   searchArticles: PropTypes.func.isRequired,
   articles: PropTypes.arrayOf(ArticleType),
 };

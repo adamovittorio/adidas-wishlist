@@ -24,9 +24,11 @@ class Article extends Component {
     };
   }
   onClick = () => {
-    if (!this.state.selected) {
+    if (!this.state.selected && this.props.addArticle) {
       this.props.addArticle(this.props.article);
       this.setState({ selected: true });
+    } else {
+      this.props.removeArticle(this.props.article.id);
     }
   }
   render() {
@@ -35,10 +37,11 @@ class Article extends Component {
 
     const imageUrl = `${article.image.split('?')[0]}?sw=240&sh=240&sm=fit`;
     const color = selected ? 'crimson' : 'silver';
+    const name = this.props.addArticle ? 'heart' : 'bin';
 
     return (
       <Card onClick={this.onClick}>
-        <Float><Icon name="heart" size={24} color={color} /></Float>
+        <Float><Icon name={name} size={24} color={color} /></Float>
         <Image src={imageUrl} />
         <Suggestion>{article.suggestion}</Suggestion>
         <Subtitle>{article.subTitle}</Subtitle>
@@ -50,10 +53,12 @@ class Article extends Component {
 Article.propTypes = {
   article: ArticleType.isRequired,
   addArticle: PropTypes.func,
+  removeArticle: PropTypes.func,
 };
 
 Article.defaultProps = {
-  addArticle: () => ({}),
+  addArticle: null,
+  removeArticle: null,
 };
 
 export default Article;

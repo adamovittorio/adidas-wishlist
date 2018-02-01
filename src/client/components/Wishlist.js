@@ -12,12 +12,13 @@ const Wishlist = (props) => {
       <Header
         title="Wishlist on Adidas.com"
       />
-      <List articles={props.data.articles} />
+      <List articles={props.data.articles} route={props.match.path} />
     </Fragment>
   );
 };
 
 Wishlist.propTypes = {
+  match: PropTypes.any, // eslint-disable-line
   data: PropTypes.shape({
     articles: PropTypes.arrayOf(ArticleType),
     isLoading: PropTypes.bool,
