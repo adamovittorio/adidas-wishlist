@@ -2,7 +2,7 @@ import { injectGlobal } from 'styled-components';
 
 const theme = {
   primary: 'black',
-  secondary: 'gray',
+  secondary: 'silver',
   text: 'white',
 };
 
