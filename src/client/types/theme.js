@@ -11,7 +11,6 @@ export const globalStyle = injectGlobal`
     height: 100%;
     padding: 0px;
     margin: 0px;
-    overflow-y: hidden;
     background-color: white;
   }
   body {

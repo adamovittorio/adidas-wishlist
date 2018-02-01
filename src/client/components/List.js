@@ -8,6 +8,7 @@ import ArticleWithMutation from '../containers/ArticleWithMutation';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   heigth: 100%;
