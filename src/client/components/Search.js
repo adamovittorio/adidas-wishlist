@@ -26,7 +26,7 @@ class Search extends Component {
     return (
       <Fragment>
         <Header
-          title="Search"
+          title="Search on Adidas.com"
           search={this.props.searchArticles}
         />
         <List articles={this.state.articles} />

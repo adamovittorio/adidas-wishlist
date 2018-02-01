@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import SearchBar from './SearchBar';
+import { Title } from './Commons';
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,36 +13,11 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const Title = styled.h1`
-  color: ${({ theme }) => theme.primary};
-  margin: 0.5em;
-`;
-
-const Input = styled.input`
-  height: 25px;
-  font-size: 20px;
-  padding: 0.5em;
-  border: 1px solid ${({ theme }) => theme.secondary};
-  border-radius: 3px;
-  &:focus {
-    outline: none;
-  }
-`;
-
-
 const Header = (props) => {
   return (
     <Wrapper>
       <Title> {props.title} </Title>
-      {props.search &&
-        <Input
-          onChange={({ target }) => {
-            if (target.value === '') { return; } // TODO normalize
-            props.search(target.value);
-          }}
-          placeholder="Ultraboost"
-        />
-      }
+      {props.search && <SearchBar search={props.search} />}
     </Wrapper>
   );
 };
