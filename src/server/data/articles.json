@@ -1,14 +1,8 @@
 [
   {
-    "id": 0,
+    "id": "asd123",
     "suggestion": "Ultraboost Shoes",
     "image": "https://www.adidas.co.uk/dis/dw/image/v2/aagl_prd/on/demandware.static/Sites-adidas-GB-Site/Sites-adidas-products/en_GB/v1517276533720/zoom/BB6166_01_standard.jpg?sw=60&sh=60&sm=fit",
-    "url": "http://www.adidas.co.uk/ultraboost-shoes/BB6166.html",
-    "rating": "5",
-    "reviews": "504",
-    "separatedSalePrice": "[{\"isCurrency\":true,\"value\":\"£\"},{\"isCurrency\":false,\"value\":\"149.95\"}]",
-    "separatedStandartPrice": "null",
-    "subTitle": "Men Running",
-    "isPreorder": ""
+    "subTitle": "Men Running"
   }
 ]

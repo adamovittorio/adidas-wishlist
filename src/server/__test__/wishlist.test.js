@@ -12,13 +12,7 @@ describe('whishlist query', () => {
           id
           suggestion
           image
-          url
-          rating
-          reviews
-          separatedSalePrice
-          separatedStandartPrice
           subTitle
-          isPreorder
         }
       }
     `;

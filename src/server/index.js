@@ -6,6 +6,8 @@ const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const schema = require('./schema');
 const articles = require('./data/articles.json');
 
+const PORT = 3001;
+
 const app = express();
 
 app.use(cors());
@@ -23,10 +25,10 @@ app.use(
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
   // eslint-disable-next-line
   console.log(`
-  [server] server listening on http://localhost:3001/graphql
-  [server] docs and graphiql on http://localhost:3001/graphiql
+  [server] server listening on http://localhost:${PORT}/graphql
+  [server] docs and graphiql on http://localhost:${PORT}/graphiql
   `);
 });
