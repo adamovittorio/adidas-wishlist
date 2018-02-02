@@ -3,6 +3,7 @@ import {
   ARTICLES_SEARCH_START,
   ARTICLES_SEARCH_SUCCESS,
   ARTICLES_SEARCH_ERROR,
+  ARTICLES_SEARCH_CLEAR,
 } from '../types/redux/search';
 
 const initialState = {
@@ -32,8 +33,35 @@ describe('search Reducer', () => {
   });
 
   it('ARTICLES_SEARCH_SUCCESS', () => {
-    const action = { type: ARTICLES_SEARCH_SUCCESS, payload: [{ suggestion: 'Ultraboost' }, { suggestion: 'Ultraboost2' }] };
-    const stateAfter = { isFetching: false, error: null, data: [{ suggestion: 'Ultraboost' }, { suggestion: 'Ultraboost2' }] };
+    const action = {
+      type: ARTICLES_SEARCH_SUCCESS,
+      payload: [
+        {
+          id: 'ooo',
+          suggestion: 'Ultraboost',
+          image: 'image',
+          subTitle: 'sub-title',
+        },
+      ],
+    };
+    const stateAfter = {
+      isFetching: false,
+      error: null,
+      data: [
+        {
+          id: 'ooo',
+          suggestion: 'Ultraboost',
+          image: 'image',
+          subTitle: 'sub-title',
+        },
+      ],
+    };
     expect(search(initialState, action)).toEqual(stateAfter);
+  });
+
+  it('ARTICLES_SEARCH_CLEAR', () => {
+    const stateBefore = { isFetching: false, error: null, data: [{ suggestion: 'Ultraboost' }, { suggestion: 'Ultraboost2' }] };
+    const action = { type: ARTICLES_SEARCH_CLEAR };
+    expect(search(stateBefore, action)).toEqual(initialState);
   });
 });

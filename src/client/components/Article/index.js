@@ -21,19 +21,26 @@ class Article extends Component {
     super(props);
     this.state = {
       selected: false,
+      article: props.article,
     };
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.article !== this.props.article) {
+      this.setState({ article: nextProps.article });
+    }
+  }
   onClick = () => {
-    if (!this.state.selected && this.props.addArticle) {
-      this.props.addArticle(this.props.article);
+    const { addArticle, removeArticle } = this.props;
+    const { selected, article } = this.state;
+    if (!selected && addArticle) {
+      addArticle(article);
       this.setState({ selected: true });
     } else {
-      this.props.removeArticle(this.props.article.id);
+      removeArticle(article.id);
     }
   }
   render() {
-    const { selected } = this.state;
-    const { article } = this.props;
+    const { selected, article } = this.state;
 
     const imageUrl = `${article.image.split('?')[0]}?sw=240&sh=240&sm=fit`;
     const color = selected ? 'crimson' : 'silver';

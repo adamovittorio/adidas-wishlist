@@ -6,10 +6,13 @@ import ReduxThunk from 'redux-thunk';
 import rootReducer from './index';
 
 // Middlewares
-// import {} from '../middlewares';
+import { search } from '../middlewares';
 
 
-const enhancer = composeWithDevTools(applyMiddleware(ReduxThunk));
+const enhancer = composeWithDevTools(applyMiddleware(
+  ReduxThunk,
+  search,
+));
 
 const store = createStore(rootReducer, enhancer);
 

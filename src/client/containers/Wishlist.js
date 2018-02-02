@@ -10,13 +10,6 @@ export const WishlistQuery = gql`
       suggestion
       subTitle
       image
-      url
-      rating
-      reviews
-      separatedSalePrice
-      separatedStandartPrice
-      subTitle
-      isPreorder
     }
   }
 `;

@@ -6,7 +6,7 @@ import Article from '../components/Article';
 import { WishlistQuery } from './Wishlist';
 
 const removeArticle = gql`
-  mutation removeArticle($articleId: Int!){
+  mutation removeArticle($articleId: String!){
     removedArticle: removeArticle(articleId: $articleId) {
       id
     }

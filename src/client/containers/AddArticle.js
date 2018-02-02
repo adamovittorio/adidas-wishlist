@@ -12,13 +12,6 @@ const addArticle = gql`
       suggestion
       subTitle
       image
-      url
-      rating
-      reviews
-      separatedSalePrice
-      separatedStandartPrice
-      subTitle
-      isPreorder
     }
   }
 `;
