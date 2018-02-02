@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import ArticleType from '../types/react/ArticleType';
-import AddArticle from '../containers/AddArticle';
-import RemoveArticle from '../containers/RemoveArticle';
-
-import { SEARCH } from '../types/routes';
+import ArticleWithMutations from '../containers/ArticleWithMutations';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,25 +15,22 @@ const Wrapper = styled.div`
   margin: 2.5em;
 `;
 
-const List = (props) => {
+const List = ({ articles, wishlist }) => {
   return (
     <Wrapper>
-      {props.articles.map((article, i) => {
-        if (props.route === SEARCH) {
-          return <AddArticle key={i} article={article} />;
-        }
-        return <RemoveArticle key={article.id} article={article} />;
-      })}
+      {articles.map(article =>
+        <ArticleWithMutations key={article.id} article={article} wishlist={wishlist} />)}
     </Wrapper>
   );
 };
 
 List.propTypes = {
-  route: PropTypes.string.isRequired,
   articles: PropTypes.arrayOf(ArticleType),
+  wishlist: PropTypes.bool,
 };
 List.defaultProps = {
   articles: [],
+  wishlist: false,
 };
 
 export default List;

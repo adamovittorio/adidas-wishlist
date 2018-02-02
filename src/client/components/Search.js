@@ -14,7 +14,7 @@ const Search = (props) => {
         search={props.searchArticles}
         clearSearch={props.clearSearch}
       />
-      <List articles={props.articles} route={props.match.path} />
+      <List articles={props.articles} />
     </Fragment>
   );
 };

@@ -12,7 +12,7 @@ const Wishlist = (props) => {
       <Header
         title="Wishlist on Adidas.com"
       />
-      <List articles={props.data.articles} route={props.match.path} />
+      <List articles={props.data.articles} wishlist />
     </Fragment>
   );
 };
