@@ -17,9 +17,7 @@ import store from './reducers/configure-store';
 // Containers
 import Search from './containers/Search';
 import Wishlist from './containers/Wishlist';
-
-// Components
-import Navbar from './components/Navbar';
+import Navbar from './containers/Navbar';
 
 // types and constants
 import { SEARCH, WISHLIST } from './types/routes';

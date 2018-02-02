@@ -46,15 +46,18 @@ class Article extends Component {
     const { selected } = this.state;
     const { article, wishlist } = this.props;
 
-    const imageUrl = `${article.image.split('?')[0]}?sw=240&sh=240&sm=fit`;
-    let color = selected ? 'crimson' : 'silver';
-    color = wishlist ? 'silver' : color;
-    const name = !wishlist ? 'heart' : 'bin';
+    const color = selected ? 'crimson' : 'silver';
 
     return (
       <Card onClick={this.onClick}>
-        <Float><Icon name={name} size={24} color={color} /></Float>
-        <Image src={imageUrl} />
+        <Float>
+          <Icon
+            size={24}
+            name={!wishlist ? 'heart' : 'bin'}
+            color={wishlist ? 'silver' : color}
+          />
+        </Float>
+        <Image src={`${article.image.split('?')[0]}?sw=240&sh=240&sm=fit`} />
         <Suggestion>{article.suggestion}</Suggestion>
         <Subtitle>{article.subTitle}</Subtitle>
       </Card>

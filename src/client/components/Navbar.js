@@ -1,6 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+import { Badge } from '../components/Commons';
+
+import ArticleType from '../types/react/ArticleType';
 
 import { SEARCH, WISHLIST } from '../types/routes';
 
@@ -36,14 +41,18 @@ const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.text};
   text-decoration: none;
   font-size: 20px;
+  display: flex;
+
+  flex-direction: row;
+  justify-content: space-between;
 
   &:hover {
     color: ${({ theme }) => theme.secondary};
   }
 `;
 
-
-const Navbar = () => {
+const Navbar = ({ data }) => {
+  const notifications = data.articles ? data.articles.length : 0;
   return (
     <Wrapper>
       <NavList>
@@ -51,11 +60,22 @@ const Navbar = () => {
           <StyledLink to={SEARCH} href> Search </StyledLink>
         </NavElement>
         <NavElement>
-          <StyledLink to={WISHLIST} href> Wishlist </StyledLink>
+          <StyledLink to={WISHLIST} href>
+            Wishlist
+            <Badge notifications={notifications} />
+          </StyledLink>
         </NavElement>
       </NavList>
     </Wrapper>
   );
+};
+
+Navbar.propTypes = {
+  data: PropTypes.shape({
+    articles: PropTypes.arrayOf(ArticleType),
+    isLoading: PropTypes.bool,
+    error: PropTypes.any,
+  }).isRequired,
 };
 
 export default Navbar;
