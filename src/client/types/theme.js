@@ -8,12 +8,15 @@ const theme = {
 
 export const globalStyle = injectGlobal`
   html {
+    width: 100%;
     height: 100%;
     padding: 0px;
     margin: 0px;
     background-color: white;
   }
   body {
+    display: flex;
+    width: 100%;
     height: 100%;
     padding: 0px;
     margin: 0px;
@@ -21,6 +24,7 @@ export const globalStyle = injectGlobal`
   }
   #root {
     height: 100%;
+    width: 100%;
     padding: 0px;
     margin: 0px;
   }

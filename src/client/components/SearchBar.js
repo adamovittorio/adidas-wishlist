@@ -3,14 +3,46 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Input = styled.input`
+  display: flex;
+  width: 75%;
   height: 20px;
   font-size: 18px;
-  width: 33%;
   padding: 0.5em;
-  border: 1px solid ${({ theme }) => theme.secondary};
-  border-radius: 3px;
+  border-left: 1px solid ${({ theme }) => theme.primary};
+  border-top: 1px solid ${({ theme }) => theme.primary};
+  border-bottom: 1px solid ${({ theme }) => theme.primary};
+  border-right: none;
+  border-radius: 3px 0px 0px 3px;
   &:focus {
     outline: none;
+  }
+`;
+
+const Form = styled.form`
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+  display: flex;
+  width: 33%;
+  flex-direction: row;
+  padding: 1em;
+`;
+
+const Button = styled.button`
+  width: 100px;
+  color: white;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  text-align: center;
+  background-color: ${({ theme }) => theme.primary};
+  border: 1px solid ${({ theme }) => theme.primary};
+  border-radius: 0px 3px 3px 0px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:disabled {
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 
@@ -22,23 +54,24 @@ class SearchBar extends Component {
   onChange = ({ target }) => {
     this.setState({
       searchTerm: target.value,
-    }, () => {
-      const { searchTerm } = this.state;
-      if (this.debouce) { this.debounce.clearTimeout(); }
-      if (searchTerm.length <= 1) {
-        this.props.clearSearch();
-      } else {
-        this.debounce = setTimeout(() => this.props.search(searchTerm), 800);
-      }
     });
   }
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { searchTerm } = this.state;
+    this.props.search(searchTerm);
+  }
   render() {
+    const { searchTerm } = this.state;
     return (
-      <Input
-        placeholder="Ultraboost"
-        onChange={this.onChange}
-        value={this.state.searchTerm}
-      />
+      <Form onSubmit={this.onSubmit}>
+        <Input
+          placeholder="Ultraboost"
+          onChange={this.onChange}
+          value={this.state.searchTerm}
+        />
+        <Button submit disabled={searchTerm.length <= 1}> SEARCH </Button>
+      </Form>
     );
   }
 }

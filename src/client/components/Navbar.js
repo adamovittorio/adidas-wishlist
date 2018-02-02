@@ -57,11 +57,11 @@ const Navbar = ({ data }) => {
     <Wrapper>
       <NavList>
         <NavElement>
-          <StyledLink to={SEARCH} href> Search </StyledLink>
+          <StyledLink to={SEARCH} href> SEARCH </StyledLink>
         </NavElement>
         <NavElement>
           <StyledLink to={WISHLIST} href>
-            Wishlist
+            WISHLIST
             <Badge notifications={notifications} />
           </StyledLink>
         </NavElement>

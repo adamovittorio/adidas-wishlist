@@ -6,11 +6,13 @@ import SearchBar from './SearchBar';
 import { Title } from './Commons';
 
 const Wrapper = styled.div`
+  margin: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-self: center;
   justify-content: center;
+  width: 100%;
 `;
 
 const Header = ({ title, search, clearSearch }) => {
