@@ -21,17 +21,11 @@ class Article extends Component {
     super(props);
     this.state = {
       selected: false,
-      article: props.article,
     };
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.article !== this.props.article) {
-      this.setState({ article: nextProps.article });
-    }
-  }
   onClick = () => {
-    const { addArticle, removeArticle } = this.props;
-    const { selected, article } = this.state;
+    const { addArticle, removeArticle, article } = this.props;
+    const { selected } = this.state;
     if (!selected && addArticle) {
       addArticle(article);
       this.setState({ selected: true });
@@ -40,7 +34,8 @@ class Article extends Component {
     }
   }
   render() {
-    const { selected, article } = this.state;
+    const { selected } = this.state;
+    const { article } = this.props;
 
     const imageUrl = `${article.image.split('?')[0]}?sw=240&sh=240&sm=fit`;
     const color = selected ? 'crimson' : 'silver';

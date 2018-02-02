@@ -19,7 +19,7 @@ export const search = store => next => action => {
           ...selecteFields,
         };
       });
-      return next({ ...action, payload: { ...transformedPayload } });
+      return next({ ...action, payload: [...transformedPayload] });
     }
     default:
       return next(action);
