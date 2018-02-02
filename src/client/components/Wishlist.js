@@ -9,9 +9,7 @@ import List from '../components/List';
 const Wishlist = (props) => {
   return (
     <Fragment>
-      <Header
-        title="Wishlist on Adidas.com"
-      />
+      <Header title="Wishlist on Adidas.com" />
       <List articles={props.data.articles} wishlist />
     </Fragment>
   );
@@ -25,7 +23,7 @@ Wishlist.propTypes = {
     error: PropTypes.any,
   }).isRequired,
 };
+
 Wishlist.defaultProps = {};
 
 export default Wishlist;
-
