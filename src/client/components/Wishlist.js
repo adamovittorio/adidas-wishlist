@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import { SEARCH } from '../types/routes';
 import ArticleType from '../types/react/ArticleType';
@@ -29,12 +30,20 @@ Body.defaultProps = {
   articles: [],
 };
 
-const Wishlist = ({ data: { articles } }) => {
+const Wrapper = styled.div`
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+`;
+
+const Wishlist = ({ data: { articles = [] } }) => {
   return (
-    <Fragment>
-      <Header title="Wishlist on Adidas.com" />
+    <Wrapper>
+      {articles.length !== 0 && <Header />}
       <Body articles={articles} />
-    </Fragment>
+    </Wrapper>
   );
 };
 

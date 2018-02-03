@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   heigth: 100%;
-  margin: 2.5em;
+  margin: 0em 2.5em 0em 2.5em;
 `;
 
 const List = ({ articles, wishlist }) => {

@@ -20,7 +20,7 @@ const Message = styled.h3`
 export const NotIdealState = ({ title, children }) => {
   return (
     <Wrapper>
-      <Icon size="200" name="heart-broken" />
+      <Icon size={200} name="heart-broken" />
       <Title>{title}</Title>
       <Message>{children}</Message>
     </Wrapper>

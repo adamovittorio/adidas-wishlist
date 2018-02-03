@@ -9,6 +9,10 @@ import ArticleType from '../types/react/ArticleType';
 import { SEARCH, WISHLIST } from '../types/routes';
 
 const Wrapper = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   border-bottom: 2px solid ${({ theme }) => theme.primary};
   background-color: ${({ theme }) => theme.primary};
   height: 40px;
