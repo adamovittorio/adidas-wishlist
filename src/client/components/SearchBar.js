@@ -20,7 +20,7 @@ const Input = styled.input`
 
 const Form = styled.form`
   @media (max-width: 900px) {
-    width: 100%;
+    width: 90%;
   }
   display: flex;
   width: 33%;

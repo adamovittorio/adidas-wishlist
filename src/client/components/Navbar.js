@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-import { Badge } from '../components/Commons';
+import { Badge, Link } from '../components/Commons';
 
 import ArticleType from '../types/react/ArticleType';
 
@@ -37,33 +36,19 @@ const NavElement = styled.li`
   align-self: center;
 `;
 
-const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.text};
-  text-decoration: none;
-  font-size: 20px;
-  display: flex;
-
-  flex-direction: row;
-  justify-content: space-between;
-
-  &:hover {
-    color: ${({ theme }) => theme.secondary};
-  }
-`;
-
 const Navbar = ({ data }) => {
   const notifications = data.articles ? data.articles.length : 0;
   return (
     <Wrapper>
       <NavList>
         <NavElement>
-          <StyledLink to={SEARCH} href> SEARCH </StyledLink>
+          <Link to={SEARCH} href> SEARCH </Link>
         </NavElement>
         <NavElement>
-          <StyledLink to={WISHLIST} href>
+          <Link to={WISHLIST} href>
             WISHLIST
             <Badge notifications={notifications} />
-          </StyledLink>
+          </Link>
         </NavElement>
       </NavList>
     </Wrapper>
