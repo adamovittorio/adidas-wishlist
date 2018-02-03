@@ -14,7 +14,7 @@ const Body = ({ articles }) => {
   }
   return (
     <NotIdealState title="Oh no your wishlist it's empty!">
-      <Link color="black" to={SEARCH} href>
+      <Link hover="black" color="silver" to={SEARCH} href>
         Search something and click on it to add to your wishlist!
       </Link>
     </NotIdealState>

@@ -24,19 +24,19 @@ const Search = (props) => {
         search={props.searchArticles}
         clearSearch={props.clearSearch}
       />
-      <List articles={props.articles} />
+      {props.articles &&
+        <List articles={props.articles} />
+      }
     </Wrapper>
   );
 };
 
 Search.propTypes = {
-  match: PropTypes.any, // eslint-disable-line
   searchArticles: PropTypes.func.isRequired,
-  clearSearch: PropTypes.func.isRequired,
   articles: PropTypes.arrayOf(ArticleType),
 };
 Search.defaultProps = {
-  articles: [],
+  articles: null,
 };
 
 export default Search;

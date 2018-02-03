@@ -6,7 +6,7 @@ import SearchBar from './SearchBar';
 import { Title } from './Commons';
 
 const Wrapper = styled.div`
-  margin: 1em;
+  margin: 2.5em 0em 2.5em 0em;
   display: flex;
   flex-direction: column;
   align-items: center;

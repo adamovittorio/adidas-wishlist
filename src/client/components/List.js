@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import ArticleType from '../types/react/ArticleType';
 import ArticleWithMutations from '../containers/ArticleWithMutations';
+import { Subtitle } from '../components/Commons';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,18 +19,20 @@ const Wrapper = styled.div`
 const List = ({ articles, wishlist }) => {
   return (
     <Wrapper>
-      {articles.map(article =>
+      {articles.length !== 0 && articles.map(article =>
         <ArticleWithMutations key={article.id} article={article} wishlist={wishlist} />)}
+      {articles.length === 0 &&
+        <Subtitle> 0 results </Subtitle>
+      }
     </Wrapper>
   );
 };
 
 List.propTypes = {
-  articles: PropTypes.arrayOf(ArticleType),
+  articles: PropTypes.arrayOf(ArticleType).isRequired,
   wishlist: PropTypes.bool,
 };
 List.defaultProps = {
-  articles: [],
   wishlist: false,
 };
 

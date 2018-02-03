@@ -1,16 +1,10 @@
-import search from '../reducers/search';
+import search, { initialState } from '../reducers/search';
 import {
   ARTICLES_SEARCH_START,
   ARTICLES_SEARCH_SUCCESS,
   ARTICLES_SEARCH_ERROR,
   ARTICLES_SEARCH_CLEAR,
 } from '../types/redux/search';
-
-const initialState = {
-  isFetching: false,
-  error: null,
-  data: [],
-};
 
 describe('search Reducer', () => {
   it('handles action with unknow type', () => {
@@ -22,13 +16,13 @@ describe('search Reducer', () => {
 
   it('ARTICLES_SEARCH_START', () => {
     const action = { type: ARTICLES_SEARCH_START };
-    const stateAfter = { isFetching: true, error: null, data: [] };
+    const stateAfter = { isFetching: true, error: null, data: null };
     expect(search(initialState, action)).toEqual(stateAfter);
   });
 
   it('ARTICLES_SEARCH_ERROR', () => {
     const action = { type: ARTICLES_SEARCH_ERROR, error: 'Generic Error' };
-    const stateAfter = { isFetching: false, error: 'Generic Error', data: [] };
+    const stateAfter = { isFetching: false, error: 'Generic Error', data: null };
     expect(search(initialState, action)).toEqual(stateAfter);
   });
 

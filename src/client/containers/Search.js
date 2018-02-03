@@ -6,7 +6,7 @@ import SearchComponent from '../components/Search';
 
 const mapStateToProps = ({ search }) => {
   return {
-    articles: search.data || [],
+    articles: search.data,
   };
 };
 

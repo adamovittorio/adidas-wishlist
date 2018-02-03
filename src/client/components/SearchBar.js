@@ -23,9 +23,12 @@ const Form = styled.form`
     width: 90%;
   }
   display: flex;
-  width: 33%;
+  width: 500px;
   flex-direction: row;
   padding: 1em;
+  align-self: center;
+  margin: 0px;
+  padding: 0px;
 `;
 
 const Button = styled.button`
@@ -44,6 +47,7 @@ const Button = styled.button`
   &:disabled {
     color: ${({ theme }) => theme.secondary};
   }
+  height: 40px;
 `;
 
 class SearchBar extends Component {

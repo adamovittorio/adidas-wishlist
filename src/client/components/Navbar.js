@@ -36,7 +36,7 @@ const NavElement = styled.li`
   align-self: center;
 `;
 
-const Navbar = ({ data }) => {
+const Navbar = ({ data, clearSearch }) => {
   const notifications = data.articles ? data.articles.length : 0;
   return (
     <Wrapper>
@@ -45,7 +45,7 @@ const Navbar = ({ data }) => {
           <Link to={SEARCH} href> SEARCH </Link>
         </NavElement>
         <NavElement>
-          <Link to={WISHLIST} href>
+          <Link to={WISHLIST} onClick={clearSearch} href>
             WISHLIST
             <Badge notifications={notifications} />
           </Link>
@@ -56,6 +56,7 @@ const Navbar = ({ data }) => {
 };
 
 Navbar.propTypes = {
+  clearSearch: PropTypes.func.isRequired,
   data: PropTypes.shape({
     articles: PropTypes.arrayOf(ArticleType),
     isLoading: PropTypes.bool,
