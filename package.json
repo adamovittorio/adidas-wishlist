@@ -11,7 +11,7 @@
     "start:client": "npx webpack-dev-server --progress --color --open --config ./webpack.dev.js",
     "start:dev": "concurrently --kill-others \"npm run start:server\" \"npm run start:client\"",
     "build": "npx webpack --config webpack.prod.js",
-    "serve": "npm run build; npx serve -s -C --open ./public",
+    "serve": "npm run build; npx serve --cache 0 -s -C --open ./public",
     "start": "node src/server"
   },
   "repository": {

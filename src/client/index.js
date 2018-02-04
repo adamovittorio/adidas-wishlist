@@ -25,6 +25,11 @@ import theme, { globalStyle } from './types/theme'; // eslint-disable-line
 
 const rootNode = document.getElementById('root');
 
+if (process.env.NODE_ENV === 'production') {
+  // eslint-disable-next-line
+  console.log(process.env.NODE_ENV); // for optimized build
+}
+
 const App = () => {
   return (
     <ApolloProvider client={client}>

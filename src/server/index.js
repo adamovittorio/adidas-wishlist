@@ -6,7 +6,7 @@ const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const schema = require('./schema');
 const articles = require('./data/articles.json');
 
-const PORT = 3001;
+const PORT = 3000;
 
 const app = express();
 

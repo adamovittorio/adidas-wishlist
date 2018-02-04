@@ -13,18 +13,18 @@ A simple wishlist
 npm install
 ```
 
-- Run test
-
-```bash
-npm test # or npm run coverage
-```
-
 - Run App (server + client)
 
 ```bash
 npm start # start backend server
 
-npm serve # transpile and serve client code
+npm run serve # transpile and serve client code
+```
+
+- Run test
+
+```bash
+npm test # or npm run coverage
 ```
 
 ## Development
