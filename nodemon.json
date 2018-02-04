@@ -1,0 +1,7 @@
+{
+  "ignore": [
+    "__test__/*",
+    "src/client/*",
+    "coverage/*"
+  ]
+}
