@@ -1,6 +1,23 @@
 {
     "extends": "airbnb",
+    "parser": "babel-eslint",
     "env": {
-        "jest": true
+        "jest": true,
+        "browser": true
+    },
+    "rules": {
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true,
+                "optionalDependencies": false,
+                "peerDependencies": false
+            }
+        ],
+        "react/jsx-filename-extension": 0,
+        "no-underscore-dangle": 0,
+        "arrow-body-style": 0,
+        "import/prefer-default-export": 0,
+        "react/jsx-uses-vars": 2
     }
 }

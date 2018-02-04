@@ -13,7 +13,7 @@ const Queries = `
 const Mutations = `
   type Mutation {
     addArticle(article: InputArticle!): Article
-    removeArticle(articleId: Int!): Article
+    removeArticle(articleId: String!): Article
   }
 `;
 
@@ -36,13 +36,8 @@ const schema = makeExecutableSchema({
     Query: { wishlist: (obj, args, ctx) => ctx.articles },
     Mutation: {
       addArticle: (obj, { article }, ctx) => {
-        const newArticle = {
-          id: ctx.articles.length,
-          ...article,
-        };
-
-        ctx.articles = ctx.articles.concat(newArticle);
-        return newArticle;
+        ctx.articles = ctx.articles.concat(article);
+        return article;
       },
       removeArticle: (obj, { articleId }, ctx) => {
         const removed = _.remove(ctx.articles, ({ id }) => id === articleId);

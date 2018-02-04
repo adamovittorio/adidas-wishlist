@@ -1,8 +1,8 @@
 const _ = require('lodash');
 const { graphql } = require('graphql');
-const schema = require('../src/schema');
+const schema = require('../schema');
 
-const articles = require('../src/data/articles.json');
+const articles = require('../data/articles.json');
 
 describe('whishlist query', () => {
   test('should return a list of articles', async () => {
@@ -12,13 +12,7 @@ describe('whishlist query', () => {
           id
           suggestion
           image
-          url
-          rating
-          reviews
-          separatedSalePrice
-          separatedStandartPrice
           subTitle
-          isPreorder
         }
       }
     `;

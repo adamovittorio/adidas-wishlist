@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
@@ -5,7 +6,11 @@ const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const schema = require('./schema');
 const articles = require('./data/articles.json');
 
+const PORT = 3000;
+
 const app = express();
+
+app.use(cors());
 
 app.use(
   '/graphql',
@@ -20,10 +25,10 @@ app.use(
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   // eslint-disable-next-line
   console.log(`
-  [graphql] server listening on http://localhost:3000/graphql
-  [graphql] docs and graphiql on http://localhost:3000/graphiql
+  [server] server listening on http://localhost:${PORT}/graphql
+  [server] docs and graphiql on http://localhost:${PORT}/graphiql
   `);
 });
